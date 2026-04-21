@@ -1,19 +1,29 @@
-number_1 = input("First number: ")
-operation_1 = input("What operation do you want to do? Enter +, -, /, *: ")
-number_2 = input("Second number: ")
+number = 0
+operation = 0
 
-number_1 = int(number_1)
-number_2 = int(number_2)
+def add(x,y):
+    x + y
 
-if operation_1 == '+':
-    print(number_1 + number_2)
-elif operation_1 == '-':
-    print(number_1 - number_2)
-elif operation_1 == '*':
-    print(number_1 * number_2)
-elif operation_1 == '/':
-    print(number_1 / number_2)
-elif operation_1 == '%':
-    print(number_1 % number_2)
-else:
-    print("invalid character")
+def multiply(x,y):
+    x * y
+
+def divide(x,y):
+    x/y
+
+def subtract(x,y):
+    x-y
+
+operation_lookup = {
+    "+": add,
+    "-": subtract,
+    "/": divide,
+    "*": multiply
+}
+
+while number != "quit":
+    number = input("Enter a number (or 'quit' to exit): ")
+    number = int(number)
+    operation = input("Enter an operation (+, -, *, /): ")
+    if operation != ["+", "-", "/", "*"]:
+        print("Invalid operation. Please try again.")
+        
