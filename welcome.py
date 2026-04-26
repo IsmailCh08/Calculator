@@ -21,10 +21,15 @@ operation_lookup = {
 }
 
 while True:
-    number = input("Enter a number (or 'quit' to exit): ")
-    if number == "quit":
-        break
-    number = float(number)
+    while True:
+        number = input("Enter a number (or 'quit' to exit): ")
+        if number == "quit":
+            break
+        try:
+            number = float(number)
+        except ValueError:
+            print("Not an integer")
+        
 
     while True:
         operation = input("Enter an operation ( +, -, *, / ): ")
@@ -33,8 +38,14 @@ while True:
         else:
             break
         
-    number_2 = input("Enter second number (or 'quit' to exit): ")
-    number_2 = float(number_2)
+    while True:
+        number_2 = input("Enter your second number (or 'quit' to exit): ")
+        if number_2 == "quit":
+            break
+        try:
+            number_2 = float(number_2)
+        except ValueError:
+            print("Not an integer")
 
     if operation in operation_lookup:
         used_Operation = operation_lookup[operation]
